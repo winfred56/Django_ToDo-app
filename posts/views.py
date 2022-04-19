@@ -38,11 +38,6 @@ class AddNew(CreateView):
     model = Post
     fields = ['title', 'description', 'due_date', 'due_time', 'priority']
 
-    def post(self, request, *args, **kwargs):
-        if Post.due_date == timezone.now() and Post.due_time == timezone.now():
-            Post.done = True
-        return super().post(request, *args, **kwargs)
-
 
 class TaskDelete(DeleteView):
     model = Post
